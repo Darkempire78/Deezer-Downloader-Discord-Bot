@@ -1,0 +1,4 @@
+DOWNLOADS/
+__pycache__/
+Cogs/__pycache__/
+*.txt
