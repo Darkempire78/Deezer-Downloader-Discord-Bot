@@ -112,6 +112,8 @@ class TrackCog(commands.Cog, name="TrackCog"):
                     await ctx.channel.send(file=file, embed=embed) # Send embed
                     await embedDownloading.delete() # Remove downloading message
 
+                    os.remove(f"downloads\PREVIEW {musicName}.mp3") # remove preview
+
                     
             except (asyncio.TimeoutError):
                 embed = discord.Embed(title = f"**TIME IS OUT**", description = "You exceeded the response time (15s)", color = 0xff0000)
