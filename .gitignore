@@ -1,4 +1,5 @@
 DOWNLOADS/
 __pycache__/
 Cogs/__pycache__/
+configuration.py
 *.txt
