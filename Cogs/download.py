@@ -1,12 +1,8 @@
 import discord
-import random 
-import asyncio
-import time
 import configuration
 import requests # For get rest api
 import json
 import os
-import platform
 import datetime
 
 from datetime import datetime
