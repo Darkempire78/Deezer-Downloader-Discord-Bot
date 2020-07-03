@@ -124,7 +124,7 @@ class DownloadCog(commands.Cog, name="DownloadCog"):
                             return # Stop the function
                         else:
                             musicQuality = "128"
-                            deezerDownloaderCommand(musicUrl, musicName, musicQuality)
+                            deezerDownloaderCommand(ctx, musicUrl, musicName, musicQuality)
                             if musicSize > 8000000:
                                 embed = discord.Embed(title = f"**THE FILE IS TOO BIG**", description = "The music file exceeds the maximum size of Discord.", color = 0xff0000)
                                 embed.set_footer(text = "Bot Created by Darkempire#8245")
