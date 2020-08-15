@@ -23,7 +23,7 @@ Finally, host the bot and invite it to your own server.
 
 ## Features
 
-* Download MP3 from Deezer
+* Download MP3 and album from Deezer
 * Select the best quality (320kbps) if the file doesn't reach Discord's file size limit (8mb).
 * Download lyrics if available.
 * Get infos about artists, albums...
@@ -32,6 +32,7 @@ Finally, host the bot and invite it to your own server.
 
 ```
 ?download <MusicName> : Search the music on Deezer and download it.
+?downloadalbum <ALbumName> : Search the album on Deezer and download it.
 ?track <MusicName> : Find informations about a track and send preview.
 ?artist <ArtistName> : Find informations about an artist.
 ?album <AlbumName> : Find informations about an album.
