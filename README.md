@@ -32,7 +32,7 @@ Finally, host the bot and invite it to your own server.
 
 ```
 ?download <MusicName> : Search the music on Deezer and download it.
-?downloadalbum <ALbumName> : Search the album on Deezer and download it.
+?downloadalbum <AlbumName> : Search the album on Deezer and download it.
 ?track <MusicName> : Find informations about a track and send preview.
 ?artist <ArtistName> : Find informations about an artist.
 ?album <AlbumName> : Find informations about an album.
