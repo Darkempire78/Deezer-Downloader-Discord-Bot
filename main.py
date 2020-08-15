@@ -18,7 +18,7 @@ class Greetings(commands.Cog):
         self._last_member = None
 
 bot = commands.Bot("?")
-# bot = commands.when_mentioned_or("!")
+# bot = commands.when_mentioned_or("?")
 
 # HELP
 bot.remove_command("help") # To create a personal help command 
