@@ -2,4 +2,4 @@ requests
 cryptography
 mutagen
 pathvalidate
-discord
+discord.py
