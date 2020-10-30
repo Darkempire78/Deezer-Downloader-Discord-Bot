@@ -1,3 +1,6 @@
+## [WARNING] This Discord bot doesn't work anymore since a recent update of Deezer's API
+
+
 ![](https://img.shields.io/github/repo-size/Darkempire78/DeezerDownloader-Discord-Bot)
 
 # Deezer Downloader Discord Bot
