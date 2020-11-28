@@ -60,7 +60,7 @@ class Login2(deezloader.Login):
                         raise exceptions.TrackNotFound("Error with this song %s" % link)
 
             music = utils.var_excape(datas['music'])
-            artist = utils.var_excape(datas['artist'])
+            artist = utils.var_excape(datas['ar_album'])
 
             directory = (
                 "%s"
