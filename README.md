@@ -16,10 +16,16 @@ Install all dependencies:
 ```bash
 pip install -r requirements.txt
 ```
-Then put your ARL Token from Deezer ([Guide](https://notabug.org/RemixDevs/DeezloaderRemix/wiki/Login+via+userToken)) and your Discord token that can be found in
+Then put your ARL Token from Deezer (See below) and your Discord token that can be found in
 the Discord's developers portal inside `configuration.py`.
 
 Finally, host the bot and invite it to your own server.
+
+### Get your Deezer Arl
+
+- login to https://www.deezer.com/
+- go on cookie manager and search for "arl" (F12 -> Application -> Cookies -> "https://www.deezer.com/" -> arl)
+- copy the value and paste in configuration.py
 
 ## Features
 
