@@ -181,6 +181,21 @@ class DownloadAlbumCog(commands.Cog, name="DownloadAlbumCog"):
                                         pass
                                     return # Stop the function
 
+                        # Remove bad caracters
+                        musicName = (
+                            musicName
+                            .replace("\\", "")
+                            .replace("/", "")
+                            .replace(":", "")
+                            .replace("*", "")
+                            .replace("?", "")
+                            .replace("\"", "")
+                            .replace("<", "")
+                            .replace(">", "")
+                            .replace("|", "")
+                            .replace("&", "")
+                        )
+
                         # Send track
                         file = discord.File(f'downloads\{musicName} {musicAuthor} ({musicQuality}).mp3')
                         await ctx.channel.send(file=file) # Send embed

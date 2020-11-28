@@ -62,6 +62,10 @@ class Login2(deezloader.Login):
             music = utils.var_excape(datas['music'])
             artist = utils.var_excape(datas['ar_album'])
 
+            # Replace
+            # music = music.replace(",", "")
+            # artist = artist.replace(",", "")
+
             directory = (
                 "%s"
                 % (

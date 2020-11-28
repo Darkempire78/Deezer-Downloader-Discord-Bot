@@ -120,6 +120,21 @@ class DownloadCog(commands.Cog, name="DownloadCog"):
                         await embedDownloading.delete() # Remove downloading message
                         return # Stop the function
 
+                    # Remove bad caracters
+                    musicName = (
+                        musicName
+                        .replace("\\", "")
+                        .replace("/", "")
+                        .replace(":", "")
+                        .replace("*", "")
+                        .replace("?", "")
+                        .replace("\"", "")
+                        .replace("<", "")
+                        .replace(">", "")
+                        .replace("|", "")
+                        .replace("&", "")
+                    )
+
                     # Check if file is not too big that 8 Mo (Discord limit)
                     musicSize = os.path.getsize(f'downloads\{musicName} {musicAuthor} ({musicQuality}).mp3')
                     if musicSize > 8000000:
