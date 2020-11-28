@@ -9,8 +9,6 @@ import asyncio
 from datetime import datetime
 from discord.ext import commands
 
-from deezerDownloader import deezerDownloaderCommand
-
 # ------------------------ COGS ------------------------ #  
 
 class TrackCog(commands.Cog, name="TrackCog"):

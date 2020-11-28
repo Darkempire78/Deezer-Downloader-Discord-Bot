@@ -1,5 +1,3 @@
 requests
-cryptography
-mutagen
-pathvalidate
 discord
+deezloader

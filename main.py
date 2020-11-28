@@ -45,7 +45,7 @@ if __name__ == '__main__':
             bot.load_extension(extension)
         except Exception as e:
             print(f'Failed to load extension {extension}.', file=sys.stderr)
-
+ 
 @bot.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(bot))

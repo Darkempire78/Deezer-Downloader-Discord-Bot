@@ -9,7 +9,8 @@ import asyncio
 from datetime import datetime
 from discord.ext import commands
 
-from deezerDownloader import deezerDownloaderCommand
+from deezloader2 import Login2
+
 
 # ------------------------ COGS ------------------------ #  
 
@@ -100,15 +101,30 @@ class DownloadCog(commands.Cog, name="DownloadCog"):
                         musicQuality = "320"
                     else:
                         musicQuality = "128"
+
+                    # Download
+                    downloa = Login2(configuration.arl)
                     
-                    # Download music file and lyrics
-                    await deezerDownloaderCommand(ctx, musicUrl, musicName, musicQuality)
-                    
+                    try:
+                        downloa.download_trackdee(
+                            musicUrl,
+                            output = "downloads",
+                            quality = f"MP3_{musicQuality}",
+                            recursive_quality = False,
+                            recursive_download = True
+                        )
+                    except:
+                        embed = discord.Embed(title = f"**ERROR**", description = "Error during the track downloding...", color = 0xff0000)
+                        embed.set_footer(text = "Bot Created by Darkempire#8245")
+                        await ctx.channel.send(embed = embed)
+                        await embedDownloading.delete() # Remove downloading message
+                        return # Stop the function
+
                     # Check if file is not too big that 8 Mo (Discord limit)
-                    musicSize = os.path.getsize(f'downloads\{musicName}.mp3')
+                    musicSize = os.path.getsize(f'downloads\{musicName} {musicAuthor} ({musicQuality}).mp3')
                     if musicSize > 8000000:
                         # Remove last files
-                        os.remove(f"downloads\{musicName}.mp3")
+                        os.remove(f"downloads\{musicName} {musicAuthor} ({musicQuality}).mp3")
                         try:
                             os.remove(f"downloads\{musicName}.lrc")
                         except:
@@ -121,7 +137,20 @@ class DownloadCog(commands.Cog, name="DownloadCog"):
                             return # Stop the function
                         else:
                             musicQuality = "128"
-                            deezerDownloaderCommand(ctx, musicUrl, musicName, musicQuality)
+                            try:
+                                downloa.download_trackdee(
+                                    musicUrl,
+                                    output = "downloads",
+                                    quality = f"MP3_{musicQuality}",
+                                    recursive_quality = False,
+                                    recursive_download = True
+                                )
+                            except:
+                                embed = discord.Embed(title = f"**ERROR**", description = "Error during the track downloding...", color = 0xff0000)
+                                embed.set_footer(text = "Bot Created by Darkempire#8245")
+                                await ctx.channel.send(embed = embed)
+                                await embedDownloading.delete() # Remove downloading message
+                                return # Stop the function
                             if musicSize > 8000000:
                                 embed = discord.Embed(title = f"**THE FILE IS TOO BIG**", description = "The music file exceeds the maximum size of Discord.", color = 0xff0000)
                                 embed.set_footer(text = "Bot Created by Darkempire#8245")
@@ -152,19 +181,19 @@ class DownloadCog(commands.Cog, name="DownloadCog"):
 
                     # Send embed with / without lyrics
                     if musicLyricsExist == False:
-                        file = discord.File(f'downloads\{musicName}.mp3')
+                        file = discord.File(f'downloads\{musicName} {musicAuthor} ({musicQuality}).mp3')
                         await ctx.channel.send(file=file, embed=embed) # Send embed
                         await embedDownloading.delete() # Remove downloading message
                     else: #embedDownloading.edit
                         file = [
-                            discord.File(f'downloads\{musicName}.mp3'),
+                            discord.File(f'downloads\{musicName} {musicAuthor} ({musicQuality}).mp3'),
                             discord.File(f'downloads\{musicName}.lrc')
                         ]
                         await ctx.channel.send(files=file, embed=embed) # Send embed
                         await embedDownloading.delete() # Remove downloading message
 
                     # Delete track and lyrics (if they exist) after posting
-                    os.remove(f"downloads\{musicName}.mp3")
+                    os.remove(f"downloads\{musicName} {musicAuthor} ({musicQuality}).mp3")
                     try:
                         os.remove(f"downloads\{musicName}.lrc")
                     except:
