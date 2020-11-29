@@ -121,8 +121,8 @@ class DownloadCog(commands.Cog, name="DownloadCog"):
                         return # Stop the function
 
                     # Remove bad caracters
-                    musicName = (
-                        musicName
+                    longMusicName = (
+                        longMusicName
                         .replace("\\", "")
                         .replace("/", "")
                         .replace(":", "")
@@ -136,12 +136,12 @@ class DownloadCog(commands.Cog, name="DownloadCog"):
                     )
 
                     # Check if file is not too big that 8 Mo (Discord limit)
-                    musicSize = os.path.getsize(f'downloads\{musicName} {musicAuthor} ({musicQuality}).mp3')
+                    musicSize = os.path.getsize(f'downloads\{longMusicName} {musicAuthor} ({musicQuality}).mp3')
                     if musicSize > 8000000:
                         # Remove last files
-                        os.remove(f"downloads\{musicName} {musicAuthor} ({musicQuality}).mp3")
+                        os.remove(f"downloads\{longMusicName} {musicAuthor} ({musicQuality}).mp3")
                         try:
-                            os.remove(f"downloads\{musicName}.lrc")
+                            os.remove(f"downloads\{longMusicName}.lrc")
                         except:
                             pass
                         if musicQuality == "128":
@@ -172,15 +172,15 @@ class DownloadCog(commands.Cog, name="DownloadCog"):
                                 await ctx.channel.send(embed = embed)
                                 await embedDownloading.delete() # Remove downloading message
                                 # Remove last files
-                                os.remove(f"downloads\{musicName}.mp3")
+                                os.remove(f"downloads\{longMusicName}.mp3")
                                 try:
-                                    os.remove(f"downloads\{musicName}.lrc")
+                                    os.remove(f"downloads\{longMusicName}.lrc")
                                 except:
                                     pass
                                 return # Stop the function
                     # If the file is not too big
                     # Check if lyrics exist
-                    lyricsPath = f"downloads\{musicName}.lrc"
+                    lyricsPath = f"downloads\{longMusicName}.lrc"
                     musicLyricsExist = None
 
                     if os.path.exists(lyricsPath):
@@ -196,21 +196,21 @@ class DownloadCog(commands.Cog, name="DownloadCog"):
 
                     # Send embed with / without lyrics
                     if musicLyricsExist == False:
-                        file = discord.File(f'downloads\{musicName} {musicAuthor} ({musicQuality}).mp3')
+                        file = discord.File(f'downloads\{longMusicName} {musicAuthor} ({musicQuality}).mp3')
                         await ctx.channel.send(file=file, embed=embed) # Send embed
                         await embedDownloading.delete() # Remove downloading message
                     else: #embedDownloading.edit
                         file = [
-                            discord.File(f'downloads\{musicName} {musicAuthor} ({musicQuality}).mp3'),
-                            discord.File(f'downloads\{musicName}.lrc')
+                            discord.File(f'downloads\{longMusicName} {musicAuthor} ({musicQuality}).mp3'),
+                            discord.File(f'downloads\{longMusicName}.lrc')
                         ]
                         await ctx.channel.send(files=file, embed=embed) # Send embed
                         await embedDownloading.delete() # Remove downloading message
 
                     # Delete track and lyrics (if they exist) after posting
-                    os.remove(f"downloads\{musicName} {musicAuthor} ({musicQuality}).mp3")
+                    os.remove(f"downloads\{longMusicName} {musicAuthor} ({musicQuality}).mp3")
                     try:
-                        os.remove(f"downloads\{musicName}.lrc")
+                        os.remove(f"downloads\{longMusicName}.lrc")
                     except:
                         pass
                     

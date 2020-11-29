@@ -137,12 +137,12 @@ class DownloadAlbumCog(commands.Cog, name="DownloadAlbumCog"):
                             return # Stop the function
                         
                         # Check if file is not too big that 8 Mo (Discord limit)
-                        musicSize = os.path.getsize(f'downloads\{musicName} {musicAuthor} ({musicQuality}).mp3')
+                        musicSize = os.path.getsize(f'downloads\{longMusicName} {musicAuthor} ({musicQuality}).mp3')
                         if musicSize > 8000000:
                             # Remove last files
-                            os.remove(f"downloads\{musicName} {musicAuthor} ({musicQuality}).mp3")
+                            os.remove(f"downloads\{longMusicName} {musicAuthor} ({musicQuality}).mp3")
                             try:
-                                os.remove(f"downloads\{musicName}.lrc")
+                                os.remove(f"downloads\{longMusicName}.lrc")
                             except:
                                 pass
                             if musicQuality == "128":
@@ -174,16 +174,16 @@ class DownloadAlbumCog(commands.Cog, name="DownloadAlbumCog"):
                                     await ctx.channel.send(embed = embed)
                                     await embedDownloading.delete() # Remove downloading message
                                     # Remove last files
-                                    os.remove(f"downloads\{musicName} {musicAuthor} ({musicQuality}).mp3")
+                                    os.remove(f"downloads\{longMusicName} {musicAuthor} ({musicQuality}).mp3")
                                     try:
-                                        os.remove(f"downloads\{musicName}.lrc")
+                                        os.remove(f"downloads\{longMusicName}.lrc")
                                     except:
                                         pass
                                     return # Stop the function
 
                         # Remove bad caracters
-                        musicName = (
-                            musicName
+                        longMusicName = (
+                            longMusicName
                             .replace("\\", "")
                             .replace("/", "")
                             .replace(":", "")
@@ -197,12 +197,12 @@ class DownloadAlbumCog(commands.Cog, name="DownloadAlbumCog"):
                         )
 
                         # Send track
-                        file = discord.File(f'downloads\{musicName} {musicAuthor} ({musicQuality}).mp3')
+                        file = discord.File(f'downloads\{longMusicName} {musicAuthor} ({musicQuality}).mp3')
                         await ctx.channel.send(file=file) # Send embed
                         await embedDownloading.delete() # Remove downloading message
                       
                         # Delete track
-                        os.remove(f"downloads\{musicName} {musicAuthor} ({musicQuality}).mp3")
+                        os.remove(f"downloads\{longMusicName} {musicAuthor} ({musicQuality}).mp3")
                     
                     # After album sending
                     # Create zip file
@@ -213,10 +213,10 @@ class DownloadAlbumCog(commands.Cog, name="DownloadAlbumCog"):
                                 musicData = requestTrack.json()
                                 musicName = musicData['title_short']
                                 # Write
-                                filePath = f"downloads\{musicName}.lrc"
+                                filePath = f"downloads\{longMusicName}.lrc"
                                 zipfile.write(filePath, basename(filePath))
                                 # Remove
-                                os.remove(f"downloads\{musicName}.lrc")
+                                os.remove(f"downloads\{longMusicName}.lrc")
                         except:
                             pass
 
