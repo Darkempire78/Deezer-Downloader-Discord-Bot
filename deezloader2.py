@@ -28,8 +28,7 @@ class Login2(deezloader.Login):
         output = details['output']
 
         def get_infos(method, json_data):
-            infos = self.get_api(method, self.token, json_data)
-            return infos
+            return self.get_api(method, self.token, json_data)
 
         def check_quality_song(infos, datas):
             ids = infos['SNG_ID']
@@ -87,7 +86,7 @@ class Login2(deezloader.Login):
 
                 ans = input("Track %s already exists, do you want to redownload it?(y or n):" % name)
 
-                if not ans in answers:
+                if ans not in answers:
                     return name
 
             decrypted_audio = open(name, "wb")

@@ -54,8 +54,6 @@ class DownloadCog(commands.Cog, name="DownloadCog"):
                     if ((message.content >= 0) and (message.content <= numberOfMusicInList)):
                         message.content = str(message.content)
                         return message.content
-                    else:
-                        pass
                 except:
                     pass
             try:
@@ -91,8 +89,7 @@ class DownloadCog(commands.Cog, name="DownloadCog"):
                     albumDate = dataTrack['album']['release_date']
 
                     def musicSize(duration):
-                        size = duration*320/8
-                        return size
+                        return duration*320/8
                     
                     size = musicSize(musicDuration)
                     # Choose the good music quality

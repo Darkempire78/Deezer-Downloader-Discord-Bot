@@ -38,8 +38,6 @@ class TopCog(commands.Cog, name="TopCog"):
                 if ((message.content >= 0) and (message.content <= 10)):
                     message.content = str(message.content)
                     return message.content
-                else:
-                    pass
             except:
                 pass
         try:
@@ -132,11 +130,8 @@ class TopCog(commands.Cog, name="TopCog"):
                 async def waitReaction(ctx, page, topMessage):
                     
                     def check2(reaction, user):
-                        if user == ctx.author:
-                            if str(reaction.emoji) == '➡️':
-                                return reaction.emoji, user
-                            elif str(reaction.emoji) == '⬅️':
-                                return reaction.emoji, user
+                        if user == ctx.author and str(reaction.emoji) in ['➡️', '⬅️']:
+                            return reaction.emoji, user
 
                     try:
                         reaction, user = await self.bot.wait_for('reaction_add', timeout=45.0, check=check2)
