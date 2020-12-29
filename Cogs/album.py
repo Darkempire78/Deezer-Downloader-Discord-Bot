@@ -51,8 +51,6 @@ class AlbumCog(commands.Cog, name="AlbumCog"):
                     if ((message.content >= 0) and (message.content <= numberOfAlbumInList)):
                         message.content = str(message.content)
                         return message.content
-                    else:
-                        pass
                 except:
                     pass
             try:

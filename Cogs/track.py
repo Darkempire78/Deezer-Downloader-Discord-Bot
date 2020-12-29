@@ -51,8 +51,6 @@ class TrackCog(commands.Cog, name="TrackCog"):
                     if ((message.content >= 0) and (message.content <= numberOfMusicInList)):
                         message.content = str(message.content)
                         return message.content
-                    else:
-                        pass
                 except:
                     pass
             try:
