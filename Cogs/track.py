@@ -21,8 +21,7 @@ class TrackCog(commands.Cog, name="TrackCog"):
     @commands.cooldown(1, 10, commands.BucketType.user)
     async def track (self, ctx, *args):
 
-        args = str(args); args = args.replace(',',''); args = args.replace("'",""); args = args.replace("(",""); args = args.replace(")","")
-        music = args
+        music = " ".join(args)
 
         requestSearch = requests.get(f'https://api.deezer.com/search/track?q={music}&index=0&limit=10&output=json') # Limit : 10
         data = requestSearch.json()

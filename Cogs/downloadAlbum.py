@@ -25,8 +25,7 @@ class DownloadAlbumCog(commands.Cog, name="DownloadAlbumCog"):
     @commands.cooldown(1, 30, commands.BucketType.user)
     async def downloadalbum (self, ctx, *args):
 
-        args = str(args); args = args.replace(',',''); args = args.replace("'",""); args = args.replace("(",""); args = args.replace(")","")
-        album = args
+        album = " ".join(args)
 
         requestSearch = requests.get(f'https://api.deezer.com/search/album?q={album}&index=0&limit=10&output=json') # Limit : 10
         data = requestSearch.json()

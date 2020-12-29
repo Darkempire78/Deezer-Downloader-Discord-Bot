@@ -24,8 +24,7 @@ class ArtistCog(commands.Cog, name="ArtistCog"):
     @commands.cooldown(1, 5, commands.BucketType.user)
     async def artist (self, ctx, *args):
 
-        args = str(args); args = args.replace(',',''); args = args.replace("'",""); args = args.replace("(",""); args = args.replace(")","")
-        artist = args
+        artist = " ".join(args)
 
         requestSearch = requests.get(f'https://api.deezer.com/search/artist?q={artist}&index=0&limit=3&output=json') # Limit : 1
         data = requestSearch.json()
