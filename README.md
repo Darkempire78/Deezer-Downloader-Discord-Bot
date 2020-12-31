@@ -64,3 +64,10 @@ This project is under [GPLv3](https://github.com/Darkempire78/DeezerDownloader-D
 
 **This project is for educational use only. Sharing copyrighted content can be against Discord TOS and your country laws. Use this tool at your own risk ! 
 The developers are not responsible for the damages that can be caused by this program.**
+
+# Advice :
+
+You should use [Discord Tools](https://marketplace.visualstudio.com/items?itemName=Darkempire78.discord-tools) to code your Discord bots on Visual Studio Code easier.
+Works for Python (Discord.py), Javascript (Discord.js) and Java (JDA). Generate template bot and code (snippets).
+- **Download :** https://marketplace.visualstudio.com/items?itemName=Darkempire78.discord-tools
+- **Repository :** https://github.com/Darkempire78/Discord-Tools
