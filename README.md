@@ -1,4 +1,4 @@
-![](https://img.shields.io/github/languages/code-size/Darkempire78/DeezerDownloader-Discord-Bot?style=for-the-badge) 
+![](https://img.shields.io/github/repo-size/Darkempire78/DeezerDownloader-Discord-Bot?style=for-the-badge)
 ![](https://img.shields.io/badge/SOURCERY-ENABLED-green?style=for-the-badge)
 
 # Deezer Downloader Discord Bot
