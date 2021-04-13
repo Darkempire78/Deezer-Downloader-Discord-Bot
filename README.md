@@ -48,6 +48,12 @@ Finally, host the bot and invite it to your own server.
 ?help : display help.
 ```
 
+## Discord
+
+Join the Discord server !
+
+[![](https://i.imgur.com/UfyvtOL.png)](https://discord.gg/sPvJmY7mcV)
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
